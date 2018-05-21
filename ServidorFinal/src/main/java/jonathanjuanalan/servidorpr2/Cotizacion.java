@@ -17,16 +17,16 @@ import java.util.logging.Logger;
  *
  * @author 2108616
  */
-public class Cotizacion implements interfaz {
-    
+public class Cotizacion implements Interfaz {
+
     @Override
     public String getURLResult(String info) {
-     URL rapi = null;
+        URL rapi = null;
         String res = "";
         try {
-            rapi = new URL("https://pure-escarpment-60633.herokuapp.com/cotizacion/" + info);
+            rapi = new URL("https://pure-escarpment-60633.herokuapp.com/cotizaciones/cotizacion" + info);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Cuadrado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cotizacion.class.getName()).log(Level.SEVERE, null, ex);
         }
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(rapi.openStream()))) {
             String inputLine;
@@ -38,4 +38,5 @@ public class Cotizacion implements interfaz {
         }
 
         return res;
+    }
 }

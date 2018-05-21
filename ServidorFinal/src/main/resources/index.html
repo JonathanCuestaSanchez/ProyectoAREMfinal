@@ -44,7 +44,7 @@
                                             <option value="Otro">Otro sistema operativo</option>
                                         </select></br>                        
                                         Numero de personal que lo utilizaran :<input id="personal" name="personal" type="text" placeholder="Numero de personal" class="form-control"></br>                                
-                                        Ciudad :<input id="ciudad" name="ciudad" type="text" placeholder="Ingrese el telefono del empleado" class="form-control"></br>                     
+                                        Ciudad :<input id="ciudad" name="ciudad" type="text" placeholder="Ingrese la ciudad" class="form-control"></br>                     
                                         ¿Tiene sistema de inventario?: <select id="inventario" name="inventario">
                                             <option value="si">si</option>
                                             <option value="no">no</option>                                            
@@ -53,10 +53,11 @@
                                             <option value="si">si</option>
                                             <option value="no">no</option>                                            
                                         </select></br> 
+                                        Numero de promedio de transacciones :<input id="transacciones" name="transacciones" type="text" placeholder="Numero de transacciones" class="form-control"></br>
                                     </div>
-                                </div>                        
+                                </div>                       
 
-                                <input type="submit" value="Submit" class="btn btn-primary btn-lg" onclick='this.form.action="/cotizacion.do/"
+                                <input type="submit" value="Submit" class="btn btn-primary btn-lg" onclick='this.form.action="/Cotizacion.do/"
                                        + document.getElementById("cliente").value
                                        + document.getElementById("cedulaCliente").value                                                                                                            
                                        + document.getElementById("telefonoCliente").value
@@ -66,8 +67,10 @@
                                        + document.getElementById("estaciones").value
                                        + document.getElementById("sistema").value
                                        + document.getElementById("personal").value
+                                       + document.getElementById("ciudad").value
                                        + document.getElementById("inventario").value 
-                                       + document.getElementById("software").value ;'>
+                                       + document.getElementById("software").value
+                                       + document.getElementById("transacciones").value ;'>
 
                             </fieldset>
                         </form>
