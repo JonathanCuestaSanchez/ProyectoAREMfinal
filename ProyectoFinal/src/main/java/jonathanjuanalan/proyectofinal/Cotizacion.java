@@ -5,6 +5,7 @@
  */
 package jonathanjuanalan.proyectofinal;
 
+import java.io.StringWriter;
 import javax.json.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class Cotizacion {
     @RequestMapping(method = RequestMethod.GET, value = "/cotizacion")
     public ResponseEntity<?> cotizacion(@RequestParam("cliente") String cliente, @RequestParam("estaciones") int estaciones, @RequestParam("sistema") String sistema,
     @RequestParam("personal") int personal,@RequestParam("ciudad") String ciudad, @RequestParam("inventario") String inventario,
-    @RequestParam("software") String software, @RequestParam("transacciones") int transacciones ){
+    @RequestParam("software") String software, @RequestParam("transacciones") int transacciones, @RequestParam("correo") String correo ){
         if (sistema.equals("Windows")){
             temp=200000;            
         }else if (sistema.equals("Linux")){
@@ -45,8 +46,8 @@ public class Cotizacion {
             tmp3=140;
         }else{
             tmp3=200;
-        }
-            JsonObject cotizacion = (JsonObject) Json.createObjectBuilder()
+        }        
+        JsonObjectBuilder cotizacion = Json.createObjectBuilder()
 		.add("Nombre del cotizante", cliente)
                 .add("Valor por sistema operativo", temp)
 		.add("Estaciones", Json.createObjectBuilder().add("Costo fijo",1000000)
@@ -59,10 +60,14 @@ public class Cotizacion {
                          .add("Total", personal*150000))
                  .add("Costos adicionales", Json.createObjectBuilder()
                          .add("Fuera de bogota",tmp2)
-                         .add("Valor por transaccion", tmp2))
-                 .add("Total de implementacion",((1000000+temp)* estaciones)+ (personal*150000));        
+                         .add("Valor por transaccion", tmp3))
+                 .add("Total de implementacion",((1000000+temp)* estaciones)+ (personal*150000));   
+        StringWriter writer = new StringWriter();
+        JsonWriter jwriter = Json.createWriter(writer);
+        jwriter.writeObject(cotizacion.build());
+        email e = new email();
+        e.send(writer.toString(),correo);
         
-        System.out.println("Entro a la clase cotizacion "+ estaciones + transacciones);
-        return new ResponseEntity<>(cotizacion,HttpStatus.OK);
+                return new ResponseEntity<>(writer.toString(),HttpStatus.OK);
     }
 }

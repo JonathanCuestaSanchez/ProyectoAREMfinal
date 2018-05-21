@@ -21,10 +21,11 @@ public class Cotizacion implements Interfaz {
 
     @Override
     public String getURLResult(String info) {
+        System.out.println(info);
         URL rapi = null;
         String res = "";
         try {
-            rapi = new URL("https://pure-escarpment-60633.herokuapp.com/cotizaciones/cotizacion" + info);
+            rapi = new URL("127.0.0.1:8080/cotizaciones/cotizacion" + info);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Cotizacion.class.getName()).log(Level.SEVERE, null, ex);
         }
