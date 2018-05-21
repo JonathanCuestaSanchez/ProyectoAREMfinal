@@ -15,16 +15,16 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Juancho
+ * @author 2108616
  */
-public class Cuadrado implements Interfaz {
-
+public class Cotizacion implements interfaz {
+    
     @Override
-    public String getURLResult(String num) {
-        URL rapi = null;
+    public String getURLResult(String info) {
+     URL rapi = null;
         String res = "";
         try {
-            rapi = new URL("https://pure-escarpment-60633.herokuapp.com/cuadrado/" + num);
+            rapi = new URL("https://pure-escarpment-60633.herokuapp.com/cotizacion/" + info);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Cuadrado.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,6 +38,4 @@ public class Cuadrado implements Interfaz {
         }
 
         return res;
-    }
-
 }

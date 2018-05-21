@@ -21,7 +21,7 @@ public class IntermediaryImpl implements Intermediary {
     @Override
     public String getRespuesta(String num, Class clase) {
         
-        String datos = "El cuadrado del número es: ";        
+        String datos = "Cotizacion: ";        
         Interfaz operation = null;
         try {
             operation = (Interfaz) Class.forName(clase.getName()).newInstance();
