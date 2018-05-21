@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
         try { 
-            serverSocket = new ServerSocket(8081);
+            serverSocket = new ServerSocket(8080);
             ExecutorService executor = Executors.newFixedThreadPool(1); 
             Intermediary intermediario = new IntermediaryImpl();
             executor.execute(new HttpServer(serverSocket,intermediario));
