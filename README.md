@@ -1,4 +1,4 @@
-# AremProyectoTr2
+# AremProyectoFinal
 Proyecto realizado por:
 - Allan Weisnner
 - Juan Alberto Mejia S.
