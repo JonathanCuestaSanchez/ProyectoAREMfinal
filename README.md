@@ -3,7 +3,9 @@ Proyecto realizado por:
 - Allan Weisnner
 - Juan Alberto Mejia S.
 - Jonathan Cuestas
-El repositorio de encuentra ordenado de la siguiente forma
+
+# El repositorio de encuentra ordenado de la siguiente forma:
+
   1. Dentro de la carpeta prototipo se encuentra:
      - ProyectoFinal contiene el codigo del servidor REST, encargado del calculo de la cotizacion
      - ServidorFinal contiene el codigo de la aplicacion web, capaz de cambiar el tipo de cotizacion con la URL 
